@@ -1,0 +1,25 @@
+CREATE TABLE `Product` (
+  `id` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `barcode` varchar(255),
+  `name` varchar(100),
+  `price` float,
+  `quantity` float,
+  `locationid` int(11) NOT NULL
+);
+CREATE TABLE `Store` (
+  `id` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(100),
+  `locationid` int(11) NOT NULL
+  `productid` int(11) NOT NULL
+);
+CREATE TABLE `Location` (
+  `id` int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(100),
+  `state` varchar(100)
+  `storeid` int(11) NOT NULL
+  `productid` int(11) NOT NULL
+);
+
+CREATE DATABASE mydb;
+
+use mydb;

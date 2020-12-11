@@ -1,0 +1,67 @@
+<?php
+//Products In Grocery Store
+class 'Product' {
+public $id = "";
+public $barcode = "";
+public $name = "";
+public $price = "";
+public $quantity = "";
+public $location_id = "";
+public $products_purchased = array();
+//Create Products DB
+public function create( $products = array()) {
+for ($i=0; $i < count($products); $i++) {
+array_push($products_purchased, $products[$i]);
+}
+}
+//View Products in Database
+public function read(){
+$query = "SELECT p.id, p.barcode, p.name, p.price, p.location,  FROM" . $this->table_name .;
+$stmt = $this->connection->prepare($query);
+$stmt->execute();
+ return $stmt;
+}
+}
+//Add
+public function getProducts() {
+return $products_purchased;
+}
+}
+//Grocery Stores
+class 'Store' {
+public $id = "";
+public $name = "";
+public $location_id = "";
+public $product_id = "";
+public $stores_Added = array();
+
+public function create( $Stores = array()) {
+for ($i=0; $i < count($stores); $i++) {
+array_push($stores_added, $stores[$i]);
+}
+}
+public function read()
+{}
+public function getStores() {
+return $stores_added;
+}
+}
+//Grocery Store Locations
+class 'Location' {
+public $id = "";
+public $name = "";
+public $state = "";
+public $store_id = "";
+public $product_id = "";
+public function create( $Locations = array()) {
+for ($i=0; $i < count($locations); $i++) {
+array_push($locations_added, $locations[$i]);
+}
+}
+public function read()
+{}
+  public function getLocations() {
+  return $locations_added;
+  }
+}
+?>
